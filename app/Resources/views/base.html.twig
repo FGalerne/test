@@ -51,59 +51,65 @@
 
                     <!-- end dropdown -->
                     <li>
-                        <a href="#" ><span class="glyphicon glyphicon-user"></span> {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="#" >{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <li class="dropdown liNav2">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-log-in"></span>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                            <span class="glyphicon glyphicon-user"></span>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                             <ul class="dropdown-menu">
                                 <li><a href="#">Mon profil</a></li>
+
+
                                 <li>
                                     <a href="{{ path('fos_user_security_logout') }}">
                                         {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                     </a>
                                 </li>
                             </ul>
+                        </a>
+                    </li>
 
 
-                            <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="liNav2"> <!--modif-->
-                                        <a href="#" ><span class="glyphicon glyphicon-picture"></span> Villages </a>
-                                    </li>
+                    <li class="collapse navbar-collapse" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="liNav2"> <!--modif-->
+                                <a href="#" ><span class="glyphicon glyphicon-picture"></span> Villages </a>
+                            </li>
 
-                                    <li class="dropdown liNav2"> <!--modif-->
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-comment"></span> Offres</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Villages</a></li>
-                                            <li><a href="#">Acteurs dynamiques</a></li>
-                                            <li><a href="#">Citoyens</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="dropdown liNav2"> <!--modif-->
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-comment"></span> Besoins</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Villages</a></li>
-                                            <li><a href="#">Acteurs dynamiques</a></li>
-                                            <li><a href="#">Citoyens</a></li>
-                                        </ul>
-                                    </li>
-
-
+                            <li class="dropdown liNav2"> <!--modif-->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-comment"></span> Offres</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Villages</a></li>
+                                    <li><a href="#">Acteurs dynamiques</a></li>
+                                    <li><a href="#">Citoyens</a></li>
                                 </ul>
-                            </div>
-                            {% else %}
-                    <li class="dropdown liNav1">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-user"></span> S'inscrire</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Je suis un maire</a></li>
-                            <li><a href="#">Je suis un acteur dynamique</a></li>
-                            <li><a href="#">Je suis un citoyen</a></li>
+                            </li>
+
+                            <li class="dropdown liNav2"> <!--modif-->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-comment"></span> Besoins</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Villages</a></li>
+                                    <li><a href="#">Acteurs dynamiques</a></li>
+                                    <li><a href="#">Citoyens</a></li>
+                                </ul>
+                            </li>
+
+
                         </ul>
                     </li>
-                                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
-                            {% endif %} </a>
-                    </li>
+
+
+                    {% else %}
+                        <li class="dropdown liNav1">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-user"></span> S'inscrire</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Je suis un maire</a></li>
+                                <li><a href="#">Je suis un acteur dynamique</a></li>
+                                <li><a href="#">Je suis un citoyen</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                    {% endif %}
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
